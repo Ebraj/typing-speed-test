@@ -33,6 +33,9 @@ $light-color : rgb(180, 180, 180);
     align-items: $align;
     flex-wrap: wrap;
 }
+textarea{
+    font-family: "Open sans";
+}
 @mixin title-style{
     text-align: center;
     border-radius: 5px 5px 0 0;
@@ -71,15 +74,15 @@ span.semi-colon{
     color: $light-color;
 }
 // Changing the placeholder colors
-::placeholder { /* Firefox, Chrome, Opera */
+textarea::placeholder { /* Firefox, Chrome, Opera */
     color: $primary-field-text;
 }
   
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
+textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: $primary-field-text;
 }
   
-::-ms-input-placeholder { /* Microsoft Edge */
+textarea::-ms-input-placeholder { /* Microsoft Edge */
     color: $primary-field-text;
 }
 
@@ -103,9 +106,10 @@ p{
         font-size: 1.5rem;
     }
 }
-input{
+textarea{
     border:1px solid $primary-field-color;
     outline: transparent;
+    // padding: 20px;
 }
 button{
     width: 100%;
@@ -166,7 +170,7 @@ button{
         font-weight: 300;
     }
     #{&}--typer{
-        input{
+        textarea{
             width: 100%;
             padding: 20px;
             background-color: $primary-field-color;
@@ -175,6 +179,10 @@ button{
             border-radius: 5px;
             font-weight: 300;
             margin: 10px 0;
+            // word-break: break-all;
+            // overflow: hidden;
+            min-height: 120px;
+            overflow: hidden;
         }
     }
     #{&}--btn{
@@ -187,20 +195,4 @@ button{
             background-color: #d3175c;
         }
     }
-}
-
-// Creating the preloader
-.pre-loader{
-    width: 100vw;
-    height: 100vh;
-    background-color: #111111;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 100;
-    color: $primary-white-color;
-    @include flex-container(center,center );
-    font-size:2rem;
 }
